@@ -1,0 +1,26 @@
+// Inner Container
+.inner-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f7f1;
+}
+
+// Flex & Grid
+.flex-container {
+    display: flex;
+}
+.ai-center {
+    align-items: center;
+}
+.jc-center {
+    justify-content: center;
+}
+.fd-column {
+    flex-direction: column;
+}
+.grid-container {
+    display: grid;
+}

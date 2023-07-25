@@ -5,11 +5,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <link rel="stylesheet" href="../css/style.css" />
+        <script src="../scripts/animation.js" defer></script>
     </head>
     <body>
         <div class="inner-container">
             <header><h1></h1></header>
-            <main></main>
+            <main>
+                <section id="too-small-width" class="hide">
+                    <h2>Page width is too small.😭😭</h2>
+                    <p>Plase make it bigger to play the game.</p>
+                </section>
+                <section>
+                    <div class="img-outer-container flex-container jc-center">
+                        <div
+                            class="img-inner-container flex-container jc-center fd-column"
+                        >
+                            <img
+                                src="../images/animation/background/background-1.jpg"
+                                alt="forest-background"
+                                class="background-img"
+                            />
+                            <img
+                                src="../images/animation/dinosaur/dinosaur-1.gif"
+                                alt="dinosaur"
+                                class="dinosaur-img"
+                            />
+                        </div>
+                    </div>
+                </section>
+                <section id="form-section">
+                    <form action="game.html" method="post">
+                        <label for="name">Name: </label>
+                        <input type="text" />
+                        <input type="submit" value="submit" />
+                    </form>
+                </section>
+            </main>
             <footer></footer>
         </div>
     </body>
