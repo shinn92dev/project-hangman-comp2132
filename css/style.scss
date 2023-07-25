@@ -3,7 +3,8 @@
 @use "header.scss";
 @use "animation.scss";
 @use "form.scss";
-@use "keyboard";
+@use "keyboard.scss";
+@use "answer.scss";
 // Small error
 #too-small-width {
     width: 100%;
