@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat:wght@400;900&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap);
 html,
 body,
 div,
@@ -231,10 +232,11 @@ img {
   display: grid;
 }
 
-.img-outer-container {
-  display: flex;
-  justify-content: center;
+header {
+  height: 100px;
+  background-color: red;
 }
+
 .img-outer-container .img-inner-container {
   position: relative;
   overflow: hidden;
@@ -250,6 +252,22 @@ img {
   bottom: 10px;
 }
 
+form {
+  margin: 50px;
+}
+form div input {
+  all: unset;
+  border-radius: 5px;
+  padding: 0px 10px;
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid black;
+}
+form input[type=submit] {
+  margin: 20px;
+  cursor: pointer;
+}
+
 #too-small-width {
   width: 100%;
   display: none;
@@ -258,6 +276,9 @@ img {
 }
 
 @media (max-width: 300px) {
+  header p {
+    display: none;
+  }
   #too-small-width {
     display: block;
   }

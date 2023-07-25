@@ -1,0 +1,17 @@
+form {
+    margin: 50px;
+    div {
+        input {
+            all: unset;
+            border-radius: 5px;
+            padding: 0px 10px;
+            border: none;
+            box-shadow: none;
+            border-bottom: 2px solid black;
+        }
+    }
+    input[type="submit"] {
+        margin: 20px;
+        cursor: pointer;
+    }
+}

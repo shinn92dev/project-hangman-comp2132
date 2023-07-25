@@ -3,13 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Hangman | Save the Dinosaur</title>
         <link rel="stylesheet" href="../css/style.css" />
         <script src="../scripts/animation.js" defer></script>
+        <script src="../scripts/store-name.js" defer></script>
     </head>
     <body>
         <div class="inner-container">
-            <header><h1></h1></header>
+            <header class="flex-container fd-column jc-center ai-center">
+                <h1>Hangman</h1>
+                <p>Save the Dinosaur!</p>
+            </header>
             <main>
                 <section id="too-small-width" class="hide">
                     <h2>Page width is too small.😭😭</h2>
@@ -34,10 +38,16 @@
                     </div>
                 </section>
                 <section id="form-section">
-                    <form action="game.html" method="post">
-                        <label for="name">Name: </label>
-                        <input type="text" />
-                        <input type="submit" value="submit" />
+                    <form
+                        action="game.html"
+                        method="post"
+                        class="flex-container fd-column ai-center"
+                    >
+                        <div>
+                            <label for="name">Name: </label>
+                            <input type="text" />
+                        </div>
+                        <input type="submit" value="Start Game!" />
                     </form>
                 </section>
             </main>

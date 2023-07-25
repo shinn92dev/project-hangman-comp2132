@@ -1,7 +1,8 @@
 @use "reset.scss";
 @use "layout.scss";
+@use "header.scss";
 @use "animation.scss";
-
+@use "form.scss";
 // Small error
 #too-small-width {
     width: 100%;
@@ -10,6 +11,11 @@
     margin-top: 100px;
 }
 @media (max-width: 300px) {
+    header {
+        p {
+            display: none;
+        }
+    }
     #too-small-width {
         display: block;
     }
