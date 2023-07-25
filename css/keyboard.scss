@@ -1,0 +1,23 @@
+#keyboard {
+    ul {
+        font-size: 2em;
+        grid-template-columns: repeat(6, 40px);
+        grid-auto-rows: 35px;
+        gap: 10px;
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        li.clicked {
+            background-color: black;
+        }
+    }
+}

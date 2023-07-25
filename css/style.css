@@ -230,6 +230,7 @@ img {
 
 .grid-container {
   display: grid;
+  justify-content: center;
 }
 
 header {
@@ -266,6 +267,27 @@ form div input {
 form input[type=submit] {
   margin: 20px;
   cursor: pointer;
+}
+
+#keyboard ul {
+  font-size: 2em;
+  grid-template-columns: repeat(6, 40px);
+  grid-auto-rows: 35px;
+  gap: 10px;
+}
+#keyboard ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+#keyboard ul li.clicked {
+  background-color: black;
 }
 
 #too-small-width {
