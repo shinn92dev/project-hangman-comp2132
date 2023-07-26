@@ -7,8 +7,9 @@
         <link rel="stylesheet" href="../css/style.css" />
         <script src="../scripts/animation.js" defer></script>
         <script src="../scripts/get-name.js" defer></script>
-        <script src="../scripts/keyboard.js" defer></script>
         <script src="../scripts/word.js" defer></script>
+        <script src="../scripts/popup.js" defer></script>
+        <script src="../scripts/keyboard.js" defer></script>
     </head>
     <body>
         <div class="inner-container">
@@ -40,7 +41,20 @@
                     </div>
                 </section>
                 <section id="answer-section">
-                    <div class="answer-container"></div>
+                    <div class="flex-container jc-sp-btw msg-container">
+                        <div>
+                            <p>Category: <span class="category-span"></span></p>
+                            <p>
+                                Chance Left: <span class="chance-span"></span>
+                            </p>
+                        </div>
+                        <div>
+                            <p>HINT!</p>
+                        </div>
+                    </div>
+                    <div
+                        class="answer-container flex-container jc-center flex-wrap"
+                    ></div>
                 </section>
                 <section id="keyboard">
                     <ul class="grid-container keyboard-ul">
@@ -71,6 +85,13 @@
                         <li>Y</li>
                         <li>Z</li>
                     </ul>
+                </section>
+                <section>
+                    <div class="overlay hidden"></div>
+                    <div class="popup hidden">
+                        <p>you already guessed that letter!</p>
+                        <button>OK</button>
+                    </div>
                 </section>
             </main>
             <footer></footer>

@@ -1,61 +1,168 @@
-const isUsed = {
-    a: false,
-    b: false,
-    c: false,
-    d: false,
-    e: false,
-    f: false,
-    g: false,
-    h: false,
-    i: false,
-    j: false,
-    k: false,
-    l: false,
-    m: false,
-    n: false,
-    o: false,
-    p: false,
-    q: false,
-    r: false,
-    s: false,
-    t: false,
-    u: false,
-    v: false,
-    w: false,
-    x: false,
-    y: false,
-    z: false,
+const word = wordSet;
+const hangman = {
+    isUsed: {
+        A: false,
+        B: false,
+        C: false,
+        D: false,
+        E: false,
+        F: false,
+        G: false,
+        H: false,
+        I: false,
+        J: false,
+        K: false,
+        L: false,
+        M: false,
+        N: false,
+        O: false,
+        P: false,
+        Q: false,
+        R: false,
+        S: false,
+        T: false,
+        U: false,
+        V: false,
+        W: false,
+        X: false,
+        Y: false,
+        Z: false,
+    },
+    wordArr: word.word.toUpperCase().split(""),
+    wordCategory: word.category,
+    answerArr: [],
+    chanceleft: 7,
+    isCorrectGuess: false,
+    setUsed: function (k) {},
+    setAnswerArr: function () {},
+    countDownChance: function () {
+        this.chanceleft--;
+    },
+    checkWin: function () {
+        for (let i = 0; i < this.wordArr.length; i++) {
+            if (this.wordArr[i] !== this.answerArr[i]) {
+                return (this.win = false);
+            }
+        }
+        return (this.win = true);
+    },
 };
 
+// ELEMENT Variable
 const lis = document.querySelectorAll(".keyboard-ul li");
+const spans = answerContainer.querySelectorAll("span");
+const categorySpan = document.querySelector(".category-span");
+const chanceSpan = document.querySelector(".chance-span");
 
-lis.forEach(function (li) {
-    li.addEventListener("click", function (e) {
-        const keyPressed = e.target.textContent;
-        if (isUsed.keyPressed) {
-        } else {
-            isUsed[keyPressed] = true;
-            e.target.classList.add("clicked");
-            console.log(e.target.classList);
-        }
+// Function: block all li element
+const blockAllLis = function () {
+    lis.forEach(function (li) {
+        li.classList.add("clicked");
     });
-});
+};
+// Funtion: will be executed when player wins
+const winGame = function () {
+    // animation function
+    blockAllLis();
+};
+// Funtion: will be executed when player loses
+const loseGame = function () {
+    // animation function
+    blockAllLis();
+};
 
-window.addEventListener("keydown", function (e) {
-    const keyPressed = e.key;
-    if (isUsed[e.key] === undefined) {
-        return;
-    }
-    if (isUsed[e.key]) {
-        console.log("already clicked");
-    } else {
-        console.log(isUsed);
-        isUsed[keyPressed] = true;
-        lis.forEach(function (li) {
-            if (li.textContent === keyPressed.toUpperCase()) {
-                console.log(li);
-                li.classList.add("clicked");
+const test = function () {
+    console.log(hangman.answerArr);
+    console.log(hangman.wordArr);
+};
+
+// Function: handle event when player clicks li elements
+function handleClickEvent() {
+    lis.forEach(function (li) {
+        li.addEventListener("click", function (e) {
+            // Before game is done
+            if (!hangman.win && hangman.chanceleft > 0) {
+                hangman.isCorrectGuess = false;
+                const keyPressed = e.target.textContent;
+                if (hangman.isUsed[keyPressed]) {
+                    hangman.isCorrectGuess = true;
+                    handlePopUP();
+                } else {
+                    hangman.isUsed[keyPressed] = true;
+                    e.target.classList.add("clicked");
+                    for (let i = 0; i < hangman.wordArr.length; i++) {
+                        if (hangman.wordArr[i] === keyPressed) {
+                            spans[i].textContent = keyPressed;
+                            hangman.answerArr[i] = keyPressed;
+                            hangman.isCorrectGuess = true;
+                        }
+                    }
+
+                    if (!hangman.isCorrectGuess) {
+                        hangman.countDownChance();
+                        chanceSpan.textContent = hangman.chanceleft;
+                    }
+
+                    hangman.checkWin();
+                    if (hangman.win && hangman.chanceleft >= 1) {
+                        winGame();
+                    }
+                    if (hangman.chanceleft <= 0) {
+                        loseGame();
+                    }
+                }
             }
         });
-    }
-});
+    });
+}
+
+function handleKeyDownEvent() {
+    window.addEventListener("keydown", function (e) {
+        const keyPressed = e.key.toUpperCase();
+        if (hangman.isUsed[keyPressed] === undefined) {
+            return;
+        }
+        if (!popup.classList.contains("show")) {
+            if (!hangman.win && hangman.chanceleft > 0) {
+                hangman.isCorrectGuess = false;
+                if (hangman.isUsed[keyPressed]) {
+                    hangman.isCorrectGuess = true;
+                    handlePopUP();
+                } else {
+                    console.log("Pressed");
+                    hangman.isUsed[keyPressed] = true;
+                    lis.forEach(function (li) {
+                        if (li.textContent === keyPressed) {
+                            li.classList.add("clicked");
+                        }
+                    });
+                    console.log("For Pressed");
+                    for (let i = 0; i < hangman.wordArr.length; i++) {
+                        if (hangman.wordArr[i] === keyPressed) {
+                            spans[i].textContent = keyPressed;
+                            hangman.answerArr[i] = keyPressed;
+                            hangman.isCorrectGuess = true;
+                        }
+                    }
+                    if (!hangman.isCorrectGuess) {
+                        hangman.countDownChance();
+                        chanceSpan.textContent = hangman.chanceleft;
+                    }
+
+                    hangman.checkWin();
+                    if (hangman.win && hangman.chanceleft >= 1) {
+                        winGame();
+                    }
+                    if (hangman.chanceleft <= 0) {
+                        loseGame();
+                    }
+                }
+            }
+        }
+    });
+}
+
+categorySpan.textContent = hangman.wordCategory;
+chanceSpan.textContent = hangman.chanceleft;
+handleClickEvent();
+handleKeyDownEvent();
