@@ -4,7 +4,7 @@
 */
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat:wght@400;900&display=swap");
-
+@import "variables.scss";
 html,
 body,
 div,
@@ -109,6 +109,7 @@ section {
 }
 body {
     line-height: 1.2;
+    font-size: 1em;
 }
 ol,
 ul {
@@ -148,9 +149,9 @@ html {
     box-sizing: inherit;
 }
 body {
-    /* color: #28251f;
-    background-color: #beb48b; */
+    color: $green;
     font-family: "Press Start 2P", sans-serif;
+    background-color: $background;
 }
 
 main {

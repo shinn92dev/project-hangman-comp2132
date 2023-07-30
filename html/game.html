@@ -4,29 +4,48 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hangman | Save the Dinosaur</title>
+        <link
+            href="https://unpkg.com/nes.css@latest/css/nes.min.css"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="../css/style.css" />
+        <script
+            src="https://kit.fontawesome.com/18a6bb89ce.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="../scripts/audio.js" defer></script>
         <script src="../scripts/animation.js" defer></script>
         <script src="../scripts/get-name.js" defer></script>
         <script src="../scripts/word.js" defer></script>
         <script src="../scripts/popup.js" defer></script>
-        <script src="../scripts/keyboard.js" defer></script>
+        <script src="../scripts/hint.js" defer></script>
+        <script src="../scripts/game.js" defer></script>
     </head>
     <body>
+        <header class="flex-container jc-center ai-center">
+            <h1 class="text-center"><a href="index.html">Hangman</a></h1>
+        </header>
         <div class="inner-container">
-            <header class="flex-container fd-column jc-center ai-center">
-                <h1>Hangman</h1>
-                <p>Save the Dinosaur!</p>
-            </header>
             <main>
+                <!-- Warning Section -->
                 <section id="too-small-width" class="hide">
                     <h2>Page width is too small.😭😭</h2>
                     <p>Plase make it bigger to play the game.</p>
                 </section>
+                <!-- Name Section -->
+                <section id="welcome-section">
+                    <h2 class="text-center"></h2>
+                    <p class="text-center">Save the Dinosaur!</p>
+                </section>
+                <!-- Img Section -->
                 <section>
                     <div class="img-outer-container flex-container jc-center">
                         <div
                             class="img-inner-container flex-container jc-center fd-column"
                         >
+                            <div class="img-absolute icon-box">
+                                <i class="fa-solid fa-volume-xmark nes-btn"></i>
+                            </div>
                             <img
                                 src="../images/animation/background/background-1.jpg"
                                 alt="forest-background"
@@ -35,66 +54,118 @@
                             <img
                                 src="../images/animation/dinosaur/dinosaur-1.gif"
                                 alt="dinosaur"
-                                class="dinosaur-img"
+                                class="dinosaur-img img-absolute"
                             />
+                            <img
+                                src="../images/animation/firework.gif"
+                                alt="firework"
+                                class="win-img hide img-absolute"
+                                id="firework1"
+                            />
+                            <img
+                                src="../images/animation/firework.gif"
+                                alt="firework"
+                                class="win-img hide img-absolute"
+                                id="firework2"
+                            />
+                            <img
+                                src="../images/animation/firework.gif"
+                                alt="firework"
+                                class="win-img hide img-absolute"
+                                id="firework3"
+                            />
+                            <img
+                                src="../images/animation/asteroid.gif"
+                                alt="asteroid"
+                                class="asteroid-img img-absolute"
+                            />
+                            <img
+                                src="../images/animation/explosion-effect.gif"
+                                alt="explosion"
+                                class="explosion-img img-absolute"
+                            />
+                            <div
+                                class="game-over-background img-absolute flex-container jc-center ai-center fd-column"
+                            >
+                                <p class="text-center"></p>
+                                <a href="index.html">
+                                    <i class="fa-solid fa-house"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
+
+                <!-- Answer Section -->
                 <section id="answer-section">
-                    <div class="flex-container jc-sp-btw msg-container">
-                        <div>
-                            <p>Category: <span class="category-span"></span></p>
-                            <p>
-                                Chance Left: <span class="chance-span"></span>
-                            </p>
+                    <div
+                        class="flex-container ai-center fd-column msg-container"
+                    >
+                        <div class="icon-list">
+                            <i class="nes-icon is-small heart"></i>
+                            <i class="nes-icon is-small heart"></i>
+                            <i class="nes-icon is-small heart"></i>
+                            <i class="nes-icon is-small heart"></i>
+                            <i class="nes-icon is-small heart"></i>
+                            <i class="nes-icon is-small heart"></i>
+                            <i class="nes-icon is-small heart"></i>
                         </div>
-                        <div>
-                            <p>HINT!</p>
-                        </div>
+                        <!-- <p>Chance Left: <span class="chance-span"></span></p> -->
+                        <button
+                            type="button"
+                            class="nes-btn is-primary"
+                            id="hint-btn"
+                        >
+                            HINT!
+                        </button>
                     </div>
                     <div
                         class="answer-container flex-container jc-center flex-wrap"
                     ></div>
+                    <p class="text-center">
+                        Category: <span class="category-span"></span>
+                    </p>
                 </section>
                 <section id="keyboard">
                     <ul class="grid-container keyboard-ul">
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
-                        <li>D</li>
-                        <li>E</li>
-                        <li>F</li>
-                        <li>G</li>
-                        <li>H</li>
-                        <li>I</li>
-                        <li>J</li>
-                        <li>K</li>
-                        <li>L</li>
-                        <li>M</li>
-                        <li>N</li>
-                        <li>O</li>
-                        <li>P</li>
-                        <li>Q</li>
-                        <li>R</li>
-                        <li>S</li>
-                        <li>T</li>
-                        <li>U</li>
-                        <li>V</li>
-                        <li>W</li>
-                        <li>X</li>
-                        <li>Y</li>
-                        <li>Z</li>
+                        <li class="nes-btn">A</li>
+                        <li class="nes-btn">B</li>
+                        <li class="nes-btn">C</li>
+                        <li class="nes-btn">D</li>
+                        <li class="nes-btn">E</li>
+                        <li class="nes-btn">F</li>
+                        <li class="nes-btn">G</li>
+                        <li class="nes-btn">H</li>
+                        <li class="nes-btn">I</li>
+                        <li class="nes-btn">J</li>
+                        <li class="nes-btn">K</li>
+                        <li class="nes-btn">L</li>
+                        <li class="nes-btn">M</li>
+                        <li class="nes-btn">N</li>
+                        <li class="nes-btn">O</li>
+                        <li class="nes-btn">P</li>
+                        <li class="nes-btn">Q</li>
+                        <li class="nes-btn">R</li>
+                        <li class="nes-btn">S</li>
+                        <li class="nes-btn">T</li>
+                        <li class="nes-btn">U</li>
+                        <li class="nes-btn">V</li>
+                        <li class="nes-btn">W</li>
+                        <li class="nes-btn">X</li>
+                        <li class="nes-btn">Y</li>
+                        <li class="nes-btn">Z</li>
                     </ul>
                 </section>
-                <section>
-                    <div class="overlay hidden"></div>
-                    <div class="popup hidden">
-                        <p>you already guessed that letter!</p>
-                        <button>OK</button>
-                    </div>
-                </section>
+
+                <div class="overlay hidden"></div>
+                <div
+                    class="popup hidden nes-container is-rounded is-dark flex-container fd-column"
+                >
+                    <p>you already guessed that letter!</p>
+                    <button type="button" class="nes-btn is-error">OK</button>
+                </div>
             </main>
-            <footer></footer>
+            <footer class="text-center">Created by Anthony at BCIT</footer>
         </div>
     </body>
 </html>

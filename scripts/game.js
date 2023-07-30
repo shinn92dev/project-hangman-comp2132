@@ -52,23 +52,40 @@ const hangman = {
 const lis = document.querySelectorAll(".keyboard-ul li");
 const spans = answerContainer.querySelectorAll("span");
 const categorySpan = document.querySelector(".category-span");
-const chanceSpan = document.querySelector(".chance-span");
+const lifeIcons = document.querySelectorAll(".icon-list i");
+// const chanceSpan = document.querySelector(".chance-span");
 
+// Function: Life
+// TODO: REDUCE ICON
+const reduceLife = function (currentLife) {
+    const fullLife = 7;
+    if (currentLife < 7) {
+        let i = 7 - currentLife;
+
+        for (i; i > 0; i--) {
+            lifeIcons[fullLife - i].classList.add("is-empty");
+        }
+    }
+};
+
+// reduceLife(5);
 // Function: block all li element
 const blockAllLis = function () {
     lis.forEach(function (li) {
-        li.classList.add("clicked");
+        li.classList.add("is-disabled");
     });
 };
 // Funtion: will be executed when player wins
 const winGame = function () {
-    // animation function
     blockAllLis();
+    handleWinEvent();
+    playWinAudio();
 };
 // Funtion: will be executed when player loses
 const loseGame = function () {
-    // animation function
     blockAllLis();
+    handleLoseEvent();
+    // playLoseAudio();
 };
 
 const test = function () {
@@ -86,21 +103,25 @@ function handleClickEvent() {
                 const keyPressed = e.target.textContent;
                 if (hangman.isUsed[keyPressed]) {
                     hangman.isCorrectGuess = true;
+                    playEffectSound("wrong");
                     handlePopUP();
                 } else {
                     hangman.isUsed[keyPressed] = true;
-                    e.target.classList.add("clicked");
+                    e.target.classList.add("is-disabled");
+
                     for (let i = 0; i < hangman.wordArr.length; i++) {
                         if (hangman.wordArr[i] === keyPressed) {
                             spans[i].textContent = keyPressed;
                             hangman.answerArr[i] = keyPressed;
                             hangman.isCorrectGuess = true;
+                            playEffectSound("success");
                         }
                     }
 
                     if (!hangman.isCorrectGuess) {
                         hangman.countDownChance();
-                        chanceSpan.textContent = hangman.chanceleft;
+                        reduceLife(hangman.chanceleft);
+                        playEffectSound("wrong");
                     }
 
                     hangman.checkWin();
@@ -127,26 +148,29 @@ function handleKeyDownEvent() {
                 hangman.isCorrectGuess = false;
                 if (hangman.isUsed[keyPressed]) {
                     hangman.isCorrectGuess = true;
+                    playEffectSound("wrong");
                     handlePopUP();
                 } else {
                     console.log("Pressed");
                     hangman.isUsed[keyPressed] = true;
                     lis.forEach(function (li) {
                         if (li.textContent === keyPressed) {
-                            li.classList.add("clicked");
+                            li.classList.add("is-disabled");
                         }
                     });
-                    console.log("For Pressed");
+
                     for (let i = 0; i < hangman.wordArr.length; i++) {
                         if (hangman.wordArr[i] === keyPressed) {
                             spans[i].textContent = keyPressed;
                             hangman.answerArr[i] = keyPressed;
+                            playEffectSound("success");
                             hangman.isCorrectGuess = true;
                         }
                     }
                     if (!hangman.isCorrectGuess) {
                         hangman.countDownChance();
-                        chanceSpan.textContent = hangman.chanceleft;
+                        reduceLife(hangman.chanceleft);
+                        playEffectSound("wrong");
                     }
 
                     hangman.checkWin();
@@ -163,6 +187,6 @@ function handleKeyDownEvent() {
 }
 
 categorySpan.textContent = hangman.wordCategory;
-chanceSpan.textContent = hangman.chanceleft;
 handleClickEvent();
 handleKeyDownEvent();
+handleHintEvent();

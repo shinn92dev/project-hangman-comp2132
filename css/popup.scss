@@ -8,6 +8,7 @@
     backdrop-filter: blur(3px);
 }
 .popup {
+    text-transform: uppercase;
     border: 3px solid white;
     width: 90%;
     height: fit-content;
@@ -20,12 +21,13 @@
     background-color: #f5f7f1;
     padding: 15px;
     position: absolute;
-    transform: translate(-50%, -20%);
-    top: 20%;
+    transform: translate(-50%, -300%);
+    top: 300%;
     left: 50%;
     z-index: 2;
 }
 .hidden {
+    // display: none;
     opacity: 0;
     z-index: -1;
     transition: all 1s ease;
@@ -33,4 +35,20 @@
 .show {
     opacity: 1;
     transition: all 1s ease;
+}
+.how-to-container {
+    width: 85%;
+    max-width: 500px;
+    div.lists {
+        ul.nes-list {
+            li {
+                margin: 5px 0px;
+                padding: 5px 0px;
+                border-bottom: 2px solid black;
+            }
+            li:last-child {
+                border-bottom: none;
+            }
+        }
+    }
 }

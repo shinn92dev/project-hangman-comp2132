@@ -4,20 +4,28 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hangman | Save the Dinosaur</title>
+        <link
+            href="https://unpkg.com/nes.css@latest/css/nes.min.css"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="../css/style.css" />
+        <script src="../scripts/jquery-3.7.0.min.js" defer></script>
+        <script src="../scripts/how-to.js" defer></script>
         <script src="../scripts/animation.js" defer></script>
         <script src="../scripts/store-name.js" defer></script>
     </head>
     <body>
+        <header class="flex-container jc-center ai-center">
+            <h1>Hangman</h1>
+        </header>
         <div class="inner-container">
-            <header class="flex-container fd-column jc-center ai-center">
-                <h1>Hangman</h1>
-                <p>Save the Dinosaur!</p>
-            </header>
             <main>
                 <section id="too-small-width" class="hide">
                     <h2>Page width is too small.😭😭</h2>
                     <p>Plase make it bigger to play the game.</p>
+                </section>
+                <section>
+                    <p class="text-center">Save the Dinosaur!!</p>
                 </section>
                 <section>
                     <div class="img-outer-container flex-container jc-center">
@@ -32,7 +40,7 @@
                             <img
                                 src="../images/animation/dinosaur/dinosaur-1.gif"
                                 alt="dinosaur"
-                                class="dinosaur-img"
+                                class="dinosaur-img img-absolute"
                             />
                         </div>
                     </div>
@@ -43,15 +51,62 @@
                         method="post"
                         class="flex-container fd-column ai-center"
                     >
-                        <div>
-                            <label for="name">Name: </label>
-                            <input type="text" />
+                        <div class="nes-field">
+                            <label for="name_field">Your Name</label>
+                            <input
+                                type="text"
+                                id="name_field"
+                                class="nes-input"
+                                required
+                            />
                         </div>
-                        <input type="submit" value="Start Game!" />
+
+                        <div
+                            class="flex-container jc-center fd-column form-btn-container"
+                        >
+                            <button
+                                type="button"
+                                class="nes-btn is-warning how-to-btn"
+                            >
+                                How to Play
+                            </button>
+                            <input
+                                type="submit"
+                                value="Start Game!"
+                                class="nes-btn is-success"
+                            />
+                        </div>
                     </form>
                 </section>
+                <section id="how-to-section">
+                    <div class="flex-container jc-center">
+                        <div class="nes-container with-title how-to-container">
+                            <h2 class="title text-center">How to Play</h2>
+                            <div class="lists">
+                                <ul class="nes-list is-circle">
+                                    <li>
+                                        Guess the random word within seven
+                                        attempts.
+                                    </li>
+                                    <li>
+                                        Guess the random word within seven
+                                        attempts.
+                                    </li>
+                                    <li>
+                                        You can use a hint to reveal a random
+                                        letter, but it will cost one life.
+                                    </li>
+                                    <li>
+                                        Turn music and sound effects on or off
+                                        using the speaker button.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
-            <footer></footer>
+            <footer class="text-center">Created by Anthony at BCIT</footer>
         </div>
     </body>
 </html>

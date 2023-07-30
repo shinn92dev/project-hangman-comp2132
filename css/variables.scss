@@ -1,0 +1,7 @@
+@mixin keyboard-grid-tem-col($repeat, $width) {
+    grid-template-columns: repeat($repeat, $width);
+}
+
+// $green: #89b18d;
+$green: #023020;
+$background: #ffd56f;

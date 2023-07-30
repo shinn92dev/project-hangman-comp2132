@@ -1,8 +1,24 @@
 #answer-section {
     // font-size: ;
-
+    #hint-btn {
+        height: fit-content;
+        width: fit-content;
+        font-size: 0.8em;
+    }
+    .icon-list {
+        margin-bottom: 15px;
+        i {
+            transform: scale(2);
+        }
+    }
+    .msg-container {
+        margin: 10px 0px;
+        #hint-btn {
+            margin-top: 15px;
+        }
+    }
     .answer-container {
-        margin: 30px 0px;
+        margin: 10px 0px;
         span {
             height: 50px;
             width: 35px;
@@ -11,8 +27,11 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            font-size: 2.5em;
+            font-size: 1.5em;
             border-bottom: 5px solid black;
         }
+    }
+    p {
+        margin: 10px 0px;
     }
 }
