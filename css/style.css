@@ -248,6 +248,13 @@ img {
 #welcome-section {
   margin: 15px 0px;
 }
+#welcome-section h2 {
+  margin-bottom: 10px;
+}
+#welcome-section span {
+  display: inline-block;
+  margin-bottom: 50px;
+}
 
 header {
   height: 65px;

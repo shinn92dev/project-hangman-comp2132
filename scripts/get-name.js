@@ -4,4 +4,4 @@ if (userName.length <= 0 || userName === undefined) {
     userName = "Player";
 }
 
-h2.textContent = `Hello ${userName}👋`;
+h2.textContent = `Hello ${userName}!`;

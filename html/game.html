@@ -8,29 +8,32 @@
             href="https://unpkg.com/nes.css@latest/css/nes.min.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="../css/style.css" />
         <script
             src="https://kit.fontawesome.com/18a6bb89ce.js"
             crossorigin="anonymous"
         ></script>
-        <script src="./scripts/audio.js" defer></script>
-        <script src="./scripts/animation.js" defer></script>
-        <script src="./scripts/get-name.js" defer></script>
-        <script src="./scripts/word.js" defer></script>
-        <script src="./scripts/popup.js" defer></script>
-        <script src="./scripts/hint.js" defer></script>
-        <script src="./scripts/game.js" defer></script>
+        <script src="../scripts/audio.js" defer></script>
+        <script src="../scripts/animation.js" defer></script>
+        <script src="../scripts/get-name.js" defer></script>
+        <script src="../scripts/word.js" defer></script>
+        <script src="../scripts/popup.js" defer></script>
+        <script src="../scripts/hint.js" defer></script>
+        <script src="../scripts/game.js" defer></script>
     </head>
     <body>
         <header class="flex-container ai-center jc-center">
-            <h1 class="text-center">Hangman</h1>
+            <h1 class="text-center"><a href="index.html">Hangman</a></h1>
         </header>
         <div class="inner-container">
             <main>
                 <!-- Warning Section -->
                 <section id="too-small-width" class="hide">
-                    <h2>Page width is too small.😭😭</h2>
-                    <p>Plase make it bigger to play the game.</p>
+                    <div class="nes-container">
+                        <h2>Page width is too small.😭😭</h2>
+                        <br />
+                        <p>Plase make it bigger to play the game.</p>
+                    </div>
                 </section>
                 <!-- Name Section -->
                 <section id="welcome-section">
@@ -47,40 +50,40 @@
                                 <i class="fa-solid fa-volume-xmark nes-btn"></i>
                             </div>
                             <img
-                                src="./images/animation/background/background-1.jpg"
+                                src="../images/animation/background/background-1.jpg"
                                 alt="forest-background"
                                 class="background-img"
                             />
                             <img
-                                src="./images/animation/dinosaur/dinosaur-1.gif"
+                                src="../images/animation/dinosaur/dinosaur-1.gif"
                                 alt="dinosaur"
                                 class="dinosaur-img img-absolute"
                             />
                             <img
-                                src="./images/animation/firework.gif"
+                                src="../images/animation/firework.gif"
                                 alt="firework"
                                 class="win-img hide img-absolute"
                                 id="firework1"
                             />
                             <img
-                                src="./images/animation/firework.gif"
+                                src="../images/animation/firework.gif"
                                 alt="firework"
                                 class="win-img hide img-absolute"
                                 id="firework2"
                             />
                             <img
-                                src="./images/animation/firework.gif"
+                                src="../images/animation/firework.gif"
                                 alt="firework"
                                 class="win-img hide img-absolute"
                                 id="firework3"
                             />
                             <img
-                                src="./images/animation/asteroid.gif"
+                                src="../images/animation/asteroid.gif"
                                 alt="asteroid"
                                 class="asteroid-img img-absolute"
                             />
                             <img
-                                src="./images/animation/explosion-effect.gif"
+                                src="../images/animation/explosion-effect.gif"
                                 alt="explosion"
                                 class="explosion-img img-absolute"
                             />

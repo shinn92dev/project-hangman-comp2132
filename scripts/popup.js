@@ -3,15 +3,6 @@ const overlay = document.querySelector(".overlay");
 const popup = document.querySelector(".popup");
 const btn = popup.querySelector("button");
 
-// const handleSection = function () {
-//     const currentDisplay = window.getComputedStyle(popupSection).display;
-//     console.log(currentDisplay);
-//     if (currentDisplay == "none") {
-//         popupSection.style.display = "block";
-//     } else {
-//         popupSection.style.display = "none";
-//     }
-// };
 const setDefault = function () {
     overlay.classList.toggle("hidden");
     overlay.classList.toggle("show");

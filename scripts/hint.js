@@ -37,9 +37,6 @@ const writeProvidedKey = function (answerArr, wordArr) {
     const selectedLetter = wordArr[selectedIdx];
     markSelectedLetterToAnswerArr(answerArr, wordArr, selectedLetter);
     disableProvidedKey(selectedLetter);
-    console.log(selectedLetter);
-    console.log(answerArr);
-    console.log(wordArr);
     for (let i = 0; i < wordArr.length; i++) {
         if (wordArr[i] === selectedLetter) {
             spans[i].textContent = selectedLetter;

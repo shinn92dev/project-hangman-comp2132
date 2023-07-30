@@ -17,14 +17,10 @@ const isAudioCurrentlyOn = function () {
 };
 
 const playEffectSound = function (status) {
-    console.log("EFFECT SOUND FUNCTION");
     if (isAudioCurrentlyOn()) {
-        console.log("PLAYABLE");
         if (status === "click") {
-            console.log("CLICK PLAY");
             clickAudio.play();
         } else if (status === "wrong") {
-            console.log("WRONG PLAY");
             wrongAudio.play();
         } else if (status === "success") {
             successAudio.play();

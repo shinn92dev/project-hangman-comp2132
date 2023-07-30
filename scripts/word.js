@@ -114,11 +114,6 @@ const ranNum = Math.floor(Math.random() * (wordList.length - 1));
 const wordSet = wordList[ranNum];
 
 const answerContainer = document.querySelector(".answer-container");
-console.log(wordSet);
 for (let i = 1; i <= wordSet.numLetter; i++) {
     answerContainer.appendChild(document.createElement("span"));
 }
-
-// for (let i = 1; i <= 10; i++) {
-//     answerContainer.appendChild(document.createElement("span"));
-// }

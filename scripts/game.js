@@ -88,11 +88,6 @@ const loseGame = function () {
     // playLoseAudio();
 };
 
-const test = function () {
-    console.log(hangman.answerArr);
-    console.log(hangman.wordArr);
-};
-
 // Function: handle event when player clicks li elements
 function handleClickEvent() {
     lis.forEach(function (li) {
@@ -151,7 +146,6 @@ function handleKeyDownEvent() {
                     playEffectSound("wrong");
                     handlePopUP();
                 } else {
-                    console.log("Pressed");
                     hangman.isUsed[keyPressed] = true;
                     lis.forEach(function (li) {
                         if (li.textContent === keyPressed) {
