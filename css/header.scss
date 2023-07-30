@@ -3,9 +3,7 @@ header {
     height: 65px;
     background-color: $green;
     color: $background;
-    h1 {
-        width: 50%;
-    }
+
     a {
         color: inherit;
     }
@@ -25,4 +23,6 @@ footer {
     background-color: $green;
     color: $background;
     padding: 10px 0px;
+    font-size: 0.6em;
+    height: 35px;
 }

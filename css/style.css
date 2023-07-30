@@ -207,7 +207,7 @@ img {
 .inner-container {
   max-width: 1000px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
 }
@@ -254,9 +254,6 @@ header {
   background-color: #023020;
   color: #ffd56f;
 }
-header h1 {
-  width: 50%;
-}
 header a {
   color: inherit;
 }
@@ -275,6 +272,8 @@ footer {
   background-color: #023020;
   color: #ffd56f;
   padding: 10px 0px;
+  font-size: 0.6em;
+  height: 35px;
 }
 
 .img-outer-container .img-inner-container {
