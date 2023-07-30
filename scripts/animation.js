@@ -27,7 +27,7 @@ let dinosaurImgEndNum = 6;
 
 // Background animation setup
 const animateBackground = function () {
-    const path = `../images/animation/background/background-${backgroundImgNum}.jpg`;
+    const path = `./images/animation/background/background-${backgroundImgNum}.jpg`;
     backgroundImg.setAttribute("src", path);
     if (backgroundImgNum >= backgroundImgEndNum) {
         backgroundImgNum = 1;
@@ -41,7 +41,7 @@ const animateBackground = function () {
 
 // Dinosaur animation setup
 const animateDinosaur = function () {
-    const path = `../images/animation/dinosaur/dinosaur-${dinosaurImgNum}.gif`;
+    const path = `./images/animation/dinosaur/dinosaur-${dinosaurImgNum}.gif`;
     dinasaurImg.setAttribute("src", path);
     if (dinosaurImgNum >= dinosaurImgEndNum) {
         dinosaurImgNum = 1;
